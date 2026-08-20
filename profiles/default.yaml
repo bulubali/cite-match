@@ -1,0 +1,83 @@
+# CiteMatch v2.3.2 — Default Academic Profile
+profile:
+  name: "default"
+  version: "2.3.2"
+  description: "General academic usage — no journal quality restrictions"
+
+if_gate:
+  body:
+    enabled: false
+    default_threshold: 0
+    require_confirmation: false
+  table:
+    enabled: false
+    default_threshold: 0
+    require_confirmation: false
+
+review_paper:
+  introduction_only: false
+  forbidden_in_quantitative_claims: false
+  forbidden_in_results: false
+
+density:
+  sentence:
+    max: 5
+  paragraph:
+    normal_max: 12
+    review_max: 18
+
+zones:
+  abstract:
+    new_citation: false
+  figure_caption:
+    migrate_existing: true
+    allow_new_injection: false
+  table:
+    migrate_existing: true
+    elite_if_gate: false
+  code_block:
+    allow_injection: false
+    allow_migration: false
+
+semantic:
+  min_similarity_threshold: 0.15
+  rejected_sections: ["abstract", "摘要", "keywords", "关键词"]
+  this_work_patterns:
+    - "this work"
+    - "this paper"
+    - "this study"
+    - "this review"
+    - "we propose"
+    - "we develop"
+    - "we present"
+    - "we introduce"
+    - "we demonstrate"
+
+sections:
+  introduction_keywords:
+    - "introduction"
+    - "引言"
+    - "background"
+    - "背景"
+  results_keywords:
+    - "results"
+    - "结果"
+    - "discussion"
+    - "讨论"
+  quantitative_claim_patterns:
+    - "achieves? \\d+"
+    - "sensitivity of \\d+"
+    - "accuracy of \\d+"
+    - "\\d+ kPa"
+    - "\\d+ mmHg"
+    - "\\d+ %"
+    - "\\d+ dB"
+    - "performance of"
+    - "demonstrates? \\d+"
+    - "outperforms?"
+
+contribution_routing:
+  material:    ["material", "材料", "3.1", "piezoelectric", "piezoresistive", "capacitive", "iontronic", "triboelectric", "optical"]
+  fabrication: ["fabrication", "制备", "3.2", "printing", "lithography", "electrospinning", "textile", "fiber"]
+  algorithm:   ["algorithm", "machine learning", "deep learning", "2.1", "signal processing", "pulse wave", "neural", "transfer learning"]
+  clinical:    ["clinical", "4.1", "4.2", "application", "healthcare", "monitoring", "surgery", "icu", "daily"]

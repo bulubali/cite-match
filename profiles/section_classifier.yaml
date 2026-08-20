@@ -1,0 +1,110 @@
+# CiteMatch v2.4 — Multilingual Section Classifier
+# Detects manuscript section types by heading keywords.
+# All language-specific keywords live here — NOT in Python modules.
+
+languages:
+  en:
+    abstract:
+      - "abstract"
+    keywords:
+      - "keywords"
+      - "key words"
+    introduction:
+      - "introduction"
+      - "background"
+    results:
+      - "results"
+      - "discussion"
+    materials:
+      - "materials"
+      - "fabrication"
+    mechanisms:
+      - "mechanisms"
+      - "working principle"
+      - "principle"
+    applications:
+      - "applications"
+      - "clinical"
+      - "healthcare"
+    conclusion:
+      - "conclusion"
+      - "outlook"
+      - "future"
+      - "summary"
+
+  zh:
+    abstract:
+      - "摘要"
+    keywords:
+      - "关键词"
+    introduction:
+      - "引言"
+      - "背景"
+    results:
+      - "结果"
+      - "讨论"
+    materials:
+      - "材料"
+      - "制备"
+    mechanisms:
+      - "机制"
+      - "原理"
+    applications:
+      - "应用"
+      - "临床"
+    conclusion:
+      - "总结"
+      - "展望"
+      - "结论"
+
+# Rejected sections — never allow new citation injection
+rejected:
+  en:
+    - "abstract"
+    - "keywords"
+  zh:
+    - "摘要"
+    - "关键词"
+
+# "This work" patterns — sentences that must never receive new citations
+this_work_patterns:
+  en:
+    - "this work"
+    - "this paper"
+    - "this study"
+    - "this review"
+    - "we propose"
+    - "we develop"
+    - "we present"
+    - "we introduce"
+    - "we demonstrate"
+  zh:
+    - "本文"
+    - "本工作"
+    - "本研究"
+    - "本综述"
+    - "我们提出"
+    - "我们开发"
+    - "我们展示"
+
+# Quantitative claim patterns — review papers forbidden here
+quantitative_claims:
+  en:
+    - "achieves? \\d+"
+    - "sensitivity of \\d+"
+    - "accuracy of \\d+"
+    - "\\d+ kPa"
+    - "\\d+ mmHg"
+    - "\\d+ %"
+    - "\\d+ dB"
+    - "performance of"
+    - "demonstrates? \\d+"
+    - "outperforms?"
+  zh:
+    - "达到 \\d+"
+    - "灵敏度.*\\d+"
+    - "精度.*\\d+"
+    - "\\d+ kPa"
+    - "\\d+ mmHg"
+    - "\\d+ %"
+    - "\\d+ dB"

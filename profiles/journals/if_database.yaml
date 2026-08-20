@@ -1,0 +1,66 @@
+# CiteMatch v2.4 — Journal Impact Factor Database
+# Previously hardcoded in body_if_gate.py JOURNAL_IF_MAP.
+# Extend with add_custom_if() at runtime, or add entries here.
+
+journals:
+  nature: 50.5
+  science: 44.9
+  cell: 45.5
+  "nat. mater.": 37.2
+  "nat. nanotechnol.": 35.2
+  "nat. electron.": 27.5
+  "nat. biomed. eng.": 26.0
+  "nat. commun.": 14.7
+  "nat. rev. cardiol.": 18.0
+  "sci. adv.": 11.8
+  "adv. mater.": 27.4
+  "adv. funct. mater.": 15.6
+  "adv. sci.": 14.3
+  "acs nano": 15.8
+  "nano energy": 16.8
+  "nano lett.": 11.2
+  "acs sens.": 8.5
+  "biosens. bioelectron.": 10.7
+  "chem. eng. j.": 13.2
+  small: 11.5
+  carbon: 10.5
+  research: 8.5
+  "acs appl. mater. interfaces": 9.5
+  "adv. healthc. mater.": 9.2
+  "npj flexible electron.": 9.2
+  "microsyst. nanoeng.": 7.5
+  "ieee sens. j.": 4.5
+  "ieee trans. instrum. meas.": 4.0
+  "ieee trans. bio-med. eng.": 5.8
+  "ieee j. biomed. health inform.": 5.5
+  "ieee access": 3.4
+  "appl. soft comput.": 8.0
+  "j. lightwave technol.": 4.0
+  "sens. actuators a": 4.2
+  sensors: 3.9
+  biosensors: 5.2
+  talanta: 6.1
+  analyst: 4.5
+  "anal. chem.": 7.4
+  "nano res.": 8.9
+  "adv. mater. technol.": 7.0
+  "adv. electron. mater.": 5.8
+  "adv. mater. interfaces": 5.4
+  "biomed. signal process. control": 4.9
+  "npj digital med.": 14.0
+  "mater. horiz.": 13.0
+  photonix: 16.5
+
+# Explicit, unambiguous journal-title variants.  Each value must name an
+# existing key in ``journals``; aliases do not introduce impact-factor data.
+aliases:
+  "advanced materials": "adv. mater."
+  "advanced science": "adv. sci."
+  "adv funct materials": "adv. funct. mater."
+  "chemical engineering journal": "chem. eng. j."
+  "adv healthcare mater": "adv. healthc. mater."
+  "npj flex electron": "npj flexible electron."
+  "sensors and actuators a: physical": "sens. actuators a"
+  "sens.": "sensors"
+  "ieee sensors j.": "ieee sens. j."
+  "biosensors and bioelectronics": "biosens. bioelectron."

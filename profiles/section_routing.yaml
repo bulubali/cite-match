@@ -1,0 +1,72 @@
+# CiteMatch v2.4 — Section Routing Map
+# Routes paper topics to manuscript sections.
+# Previously hardcoded in literature_intel.py TOPIC_SECTION_MAP.
+
+routes:
+  review:
+    section: "Introduction"
+    keywords: ["review", "survey", "overview", "progress", "advances", "perspective", "comprehensive"]
+
+  piezoelectric:
+    section: "Piezoelectric Materials"
+    keywords: ["piezoelectric", "pzt", "pvdf", "ferroelectric", "piezoceramic"]
+
+  piezoresistive:
+    section: "Piezoresistive Materials"
+    keywords: ["piezoresistive", "resistive sensor", "strain sensor"]
+
+  capacitive:
+    section: "Capacitive Materials"
+    keywords: ["capacitive", "dielectric"]
+
+  iontronic:
+    section: "Iontronic Materials"
+    keywords: ["iontronic", "edl", "electric double", "ionic", "hydrogel"]
+
+  triboelectric:
+    section: "Triboelectric Materials"
+    keywords: ["triboelectric", "nanogenerator", "self-powered", "self powered"]
+
+  optical:
+    section: "Optical Materials"
+    keywords: ["optical", "photonic", "ppr", "spectrometer", "hyperspectral", "photoplethysmograph"]
+
+  ultrasound:
+    section: "Ultrasound / Vascular Tracking"
+    keywords: ["ultrasound", "ultrasonic", "pmut", "transducer array", "acoustic wave"]
+
+  pulse_wave:
+    section: "Pulse Wave Analysis / PWV"
+    keywords: ["pulse wave", "pwa", "waveform analysis"]
+
+  pulse_transit:
+    section: "Pulse Transit Time"
+    keywords: ["pwv", "ptt", "pulse transit", "pulse wave velocity"]
+
+  machine_learning:
+    section: "Machine Learning / Signal Processing"
+    keywords: ["machine learning", "deep learning", "neural", "transfer learning", "feature", "algorithm", "estimation"]
+
+  clinical:
+    section: "Clinical Applications"
+    keywords: ["clinical", "trial", "perioperative", "icu", "intensive care", "surgical", "aami", "patient"]
+
+  wearable:
+    section: "Wearable Systems"
+    keywords: ["wearable", "epidermal", "skin", "conformal", "ring", "wristband", "smartwatch", "patch"]
+
+  textile:
+    section: "Fiber & Textile"
+    keywords: ["textile", "fiber", "fabric", "electrospinning", "breathable", "woven"]
+
+  printed:
+    section: "Printed Electronics"
+    keywords: ["printed", "screen print", "3d print", "additive", "lithography"]
+
+  fabrication:
+    section: "Fabrication Processes"
+    keywords: ["fabrication", "manufacturing", "solution process", "coating"]
+
+  system_integration:
+    section: "System Integration"
+    keywords: ["system", "integrat", "wireless", "circuit", "packaging"]

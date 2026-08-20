@@ -1,0 +1,59 @@
+# Runtime, production evidence, and private research inputs
+output/
+cache/
+private/
+*.docx
+*.pdf
+*.bib
+workflow_state.json
+injected_manuscript.md
+References_Summary.md
+Floating_Reference_Report.md
+CiteMatch_Mapping_Report.md
+CiteMatch_Mapping_Report.csv
+
+# Private production fixtures are deliberately not distributed.
+tests/golden_dataset/
+tests/real_cases/
+tests/production_validation/reports/
+reports/
+
+# A future explicitly synthetic BibTeX fixture may be distributed here.
+!tests/fixtures/
+!tests/fixtures/**/*.bib
+
+# Python and test artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and packaging
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# IDE, OS, logs, and temporary files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+logs/
+*.log
+temp/
+tmp/
+*.tmp
+*.bak_*

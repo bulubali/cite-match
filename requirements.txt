@@ -1,0 +1,9 @@
+# CiteMatch v2.5.x RC
+# Verified in the RC environment: Python 3.13.7.
+# These compatible ranges preserve the RC-tested dependency families without
+# falsely claiming a fully locked cross-platform environment.
+PyYAML>=6.0,<7
+pytest>=9.1,<10
+python-docx>=1.2,<2
+pypandoc>=1.17,<2
+bibtexparser>=1.4,<2

@@ -1,0 +1,81 @@
+# CiteMatch v2.5.x — Production Validation Configuration
+# ======================================================
+# Every threshold here is a production gate.
+# Changes must be reviewed before merging.
+
+validation:
+  # Overall pass threshold (0-100)
+  overall_pass_threshold: 90
+
+  # Individual validator thresholds
+  citation:
+    min_coverage_pct: 95        # Minimum citation coverage %
+    max_missing_keys: 0         # Maximum allowed missing citekeys
+
+  mapping:
+    min_similarity_avg: 0.15    # Minimum average similarity score
+    max_csv_diff_pct: 5         # Maximum CSV difference % vs golden
+
+  pandoc:
+    required: true              # Pandoc must be available
+    min_version: "3.0"
+    crossref_required: true
+
+  csl:
+    collapse_required: true     # Citation number collapsing required
+    bom_required: true          # UTF-8 BOM for CSV output
+
+  injection:
+    max_sentence_density: 5     # Max citations per sentence
+    max_paragraph_density: 12   # Max citations per paragraph
+    max_review_density: 18      # Max citations per paragraph (review)
+
+  density:
+    warn_threshold_pct: 80      # Warn at 80% of max density
+    fail_threshold_pct: 100     # Fail at 100% of max density
+
+  table:
+    elite_if_threshold: 10      # IF threshold for table citations
+    table_damage_check: true    # Verify table structure intact
+
+  figure:
+    no_new_injection: true      # No new citations in figure captions
+    existing_migration_ok: true # Existing figure citations can be migrated
+
+  floating:
+    max_floating_pct: 20        # Max % of pending that can float
+    ai_expansion_required: true # AI expansion markers for floating refs
+
+  summary:
+    required_fields:            # Required fields in References_Summary
+      - citekey
+      - title
+      - paper_type
+      - core_finding
+      - technical_keywords
+      - semantic_anchors
+      - recommended_section
+
+# Paths
+paths:
+  golden_dataset: "../../golden_dataset"
+  output: "../../../output"
+  reports: "./reports"
+
+# Phases to validate
+phases:
+  - "00"   # BBT + Bib integrity
+  - "0"    # Toolchain
+  - "1"    # Delta detection + IF gate
+  - "2"    # References Summary
+  - "3"    # Semantic mapping + injection rules
+  - "4"    # Floating references
+  - "5"    # Backup + merge + crossref
+  - "6"    # Journal + CSL + Pandoc + DOCX
+  - "7"    # Mapping report + CSV
+
+# Severity levels
+severity:
+  PASS: "✅"
+  WARNING: "⚠️"
+  FAIL: "❌"

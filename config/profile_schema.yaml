@@ -1,0 +1,62 @@
+# CiteMatch v2.4 — Profile Schema
+# Every profile YAML must conform to this structure.
+
+required_sections:
+  - profile
+  - if_gate
+  - review_paper
+  - density
+  - zones
+  - semantic
+
+profile:
+  required_fields:
+    - name
+    - version
+  optional_fields:
+    - description
+
+if_gate:
+  required_subsections:
+    - body
+    - table
+  body:
+    required_fields:
+      - enabled
+      - default_threshold
+      - require_confirmation
+  table:
+    required_fields:
+      - enabled
+      - default_threshold
+      - require_confirmation
+
+review_paper:
+  required_fields:
+    - introduction_only
+    - forbidden_in_quantitative_claims
+    - forbidden_in_results
+
+density:
+  required_subsections:
+    - sentence
+    - paragraph
+  sentence:
+    required_fields:
+      - max
+  paragraph:
+    required_fields:
+      - normal_max
+      - review_max
+
+zones:
+  required_subsections:
+    - abstract
+    - figure_caption
+    - table
+    - code_block
+
+semantic:
+  required_fields:
+    - min_similarity_threshold
+    - rejected_sections
