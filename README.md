@@ -61,6 +61,35 @@ python workflows/manuscript_workflow.py manuscript.docx references.bib \
 
 When an explicit Pandoc path is supplied, the workflow validates it, uses it for DOCX-to-Markdown preparation and Phase 6 export, and first looks for `pandoc-crossref` beside that executable.
 
+### Quick Install
+
+The installer installs only the CiteMatch Skill; it does not install Codex, Claude Code, Python, Pandoc, or `pandoc-crossref`.
+
+Windows / Codex (PowerShell):
+
+```powershell
+git clone https://github.com/bulubali/cite-match.git
+Set-Location .\cite-match
+.\installers\install.ps1 --target codex
+```
+
+Windows / Claude Code must be run from the Git Bash or WSL environment actually used by Claude Code:
+
+```bash
+./installers/install.sh --target claude
+```
+
+macOS/Linux:
+
+```bash
+git clone https://github.com/bulubali/cite-match.git
+cd cite-match
+chmod +x installers/install.sh
+./installers/install.sh --target both
+```
+
+Use `--dry-run` to preview changes, `--force` to replace an existing installation after backup, and `--uninstall` to remove only an installer-owned CiteMatch Skill.
+
 ### C. Installed Skill
 
 Copying `SKILL.md` alone is not a complete CiteMatch installation. Keep the repository checkout and Python dependencies available, and install Pandoc plus `pandoc-crossref` separately.
