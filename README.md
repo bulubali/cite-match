@@ -22,19 +22,32 @@ The installed Skill is presentation and interaction only. It collects one Prefli
 
 ## Installation
 
-### Python
+### A. CiteMatch repository and Python dependencies
 
 The RC was validated with **Python 3.13.7**. Python 3.9 or later is required by the source type syntax; use the validated interpreter where reproducibility matters.
 
+Windows PowerShell:
+
+```powershell
+git clone https://github.com/bulubali/cite-match.git
+Set-Location .\cite-match
+py -3.13 -m venv .venv
+& .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+macOS/Linux:
+
 ```bash
-python -m venv .venv
-.venv\\Scripts\\activate
+git clone https://github.com/bulubali/cite-match.git
+cd cite-match
+python3 -m venv .venv
+. .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
 The dependency ranges in `requirements.txt` retain the dependency families used by the RC; they are not a lockfile.
 
-### Pandoc and pandoc-crossref
+### B. Pandoc and pandoc-crossref
 
 Install a compatible Pandoc release and a compatible `pandoc-crossref` binary. The RC acceptance environment used Pandoc **3.6.4** and its paired `pandoc-crossref` executable. CiteMatch does not install either tool or modify `PATH`.
 
@@ -48,15 +61,32 @@ python workflows/manuscript_workflow.py manuscript.docx references.bib \
 
 When an explicit Pandoc path is supplied, the workflow validates it, uses it for DOCX-to-Markdown preparation and Phase 6 export, and first looks for `pandoc-crossref` beside that executable.
 
-### Installed Skill distribution
+### C. Installed Skill
 
-The distributable production Skill is [skill/SKILL.md](skill/SKILL.md). Copy it into your local skill location, for example:
+Copying `SKILL.md` alone is not a complete CiteMatch installation. Keep the repository checkout and Python dependencies available, and install Pandoc plus `pandoc-crossref` separately.
 
-```text
-<AGENTS_HOME>/skills/cite-match/SKILL.md
+The distributable production Skill is [skill/SKILL.md](skill/SKILL.md). Run the following from the repository root:
+
+```powershell
+$skillRoot = Join-Path $env:USERPROFILE ".agents\skills\cite-match"
+New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
+Copy-Item -LiteralPath (Join-Path (Get-Location) "skill\SKILL.md") `
+  -Destination (Join-Path $skillRoot "SKILL.md") -Force
 ```
 
-On a typical Windows installation, `<AGENTS_HOME>` is the user-managed `.agents` directory. The Skill documents the formal command shape and routes all production work through this repository's `ManuscriptWorkflow`.
+Windows path: `%USERPROFILE%\.agents\skills\cite-match\SKILL.md`
+
+macOS/Linux:
+
+```bash
+skill_root="$HOME/.agents/skills/cite-match"
+mkdir -p "$skill_root"
+cp skill/SKILL.md "$skill_root/SKILL.md"
+```
+
+macOS/Linux path: `~/.agents/skills/cite-match/SKILL.md`
+
+The Skill is only the user-facing trigger and configuration adapter; it routes production work to this checkout's `ManuscriptWorkflow`. Installing only this file does not install the engine, Python dependencies, Pandoc, or `pandoc-crossref`.
 
 ## Basic usage and Preflight
 
